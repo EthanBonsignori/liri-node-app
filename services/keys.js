@@ -1,5 +1,3 @@
-console.log('keys loaded')
-
 exports.bandsInTown = {
   id: process.env.BANDS_IN_TOWN_ID
 }
@@ -10,5 +8,5 @@ exports.spotify = {
 }
 
 exports.omdb = {
-  id: process.env.OMDB_APIKEY
+  id: process.env.OMDB_KEY
 }

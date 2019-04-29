@@ -4,7 +4,7 @@ const fs = require('fs')
 
 class Movie {
   findMovie (movie) {
-    const url = `https://www.omdbapi.com/?t=${movie}&apikey=${keys.omdb}`
+    const url = `https://www.omdbapi.com/?t=${movie}&apikey=${keys.omdb.id}`
     axios.get(url)
       .then(response => {
         const title = `Search for "${movie}" Using the _movie-this_ command\n`
@@ -28,6 +28,7 @@ class Movie {
           console.log(movieData)
         })
       })
+      .catch(err => { console.log(err.response.data) })
   }
 }
 

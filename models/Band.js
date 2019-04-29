@@ -9,7 +9,7 @@ class Band {
     axios.get(url)
       .then(response => {
         const data = response.data
-        const title = `\n\nSearch for "${band}" using the _concert-this_ command found ${data.length} results\n\n`
+        const title = `\n\nSearch for "${band}" using the <concert-this> command found ${data.length} results\n\n`
         console.log(title)
         fs.appendFile('log.txt', title, (err) => {
           if (err) throw err

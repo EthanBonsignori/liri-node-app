@@ -4,11 +4,21 @@ const keys = require('../services/keys')
 const axios = require('axios')
 const fs = require('fs')
 
-const spotify = new Spotify(keys.spotify)
+console.log(keys.spotify)
+// const spotify = new Spotify(keys.spotify)
 
 class SpotifyThis {
-  song () {
-    console.log('finding song')
+  song (song) {
+    if (!song) song = 'The Sign'
+    console.log(song)
+
+  //   spotify.search({
+  //     type: 'track',
+  //     query: 'song'
+  //   }, (err, data) => {
+  //     if (err) throw err
+  //     console.log(data)
+  //   })
   }
 }
 

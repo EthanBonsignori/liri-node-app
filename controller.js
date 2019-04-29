@@ -1,9 +1,9 @@
 const fs = require('fs')
 
-const { Band, Spotify, Movie } = require('./models')
+const { Band, SpotifyThis, Movie } = require('./models')
 
 const band = new Band()
-const spotify = new Spotify()
+const spotifyThis = new SpotifyThis()
 const movie = new Movie()
 
 const helpCommand = () => {
@@ -19,7 +19,7 @@ const helpCommand = () => {
 const readRandom = () => {
   fs.readFile('random.txt', 'utf8', (error, data) => {
     if (error) throw error
-    console.log(`Read command: ${data} from random.txt...`)
+    console.log(`Succesfully read command <${data}> from file 'random.txt'...`)
     checkCommand(data)
   })
 }
@@ -37,7 +37,7 @@ const checkCommand = (command) => {
       band.findBand(search)
       break
     case 'spotify-this-song':
-      spotify.findSong(search)
+      spotifyThis.song(search)
       break
     case 'movie-this':
       movie.findMovie(search)
