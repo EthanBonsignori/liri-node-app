@@ -1,12 +1,28 @@
-const Band = require('./Band')
-// const Spotify = require('./Spotify')
-const Movie = require('./Movie')
-// const Random = require('./Random')
+const fs = require('fs')
+
+const { Band, Spotify, Movie } = require('./models')
 
 const band = new Band()
-// const spotify = new Spotify()
+const spotify = new Spotify()
 const movie = new Movie()
-// const random = new Random()
+
+const helpCommand = () => {
+  console.log(`
+  \n\nType one of the following commands:\n
+  concert-this <band-or-artist> : searches for upcoming concerts\n
+  spotify-this-song <song-name> : searches for info on that song\n
+  movie-this <movie-name> : searches for info on that movie\n
+  do-what-it-says : runs whatever command is in random.txt\n\n
+  `)
+}
+
+const readRandom = () => {
+  fs.readFile('random.txt', 'utf8', (error, data) => {
+    if (error) throw error
+    console.log(`Read command: ${data} from random.txt...`)
+    checkCommand(data)
+  })
+}
 
 const checkCommand = (command) => {
   const commandArray = command.split(' ')
@@ -14,6 +30,9 @@ const checkCommand = (command) => {
   let search = commandArray.slice(1).join(' ')
 
   switch (action) {
+    case 'help':
+      helpCommand()
+      break
     case 'concert-this':
       band.findBand(search)
       break
@@ -24,8 +43,10 @@ const checkCommand = (command) => {
       movie.findMovie(search)
       break
     case 'do-what-it-says':
-      random.readText()
+      readRandom()
       break
+    default:
+      console.log(`\n\n Unrecognized command. Type 'liri help' for available commands\n\n`)
   }
 }
 
