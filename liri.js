@@ -1,3 +1,5 @@
-require('dotenv').config()
-const keys = require('./keys.js')
-const spotify = new Spotify(keys.spotify)
+const controller = require('./controller')
+
+let command = process.argv.slice(2).join(' ')
+
+controller(command)
