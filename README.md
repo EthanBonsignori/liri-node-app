@@ -15,6 +15,7 @@ Once you have the repository cloned or downloaded and added your own API keys in
 ### `movie-this <movie-title>` (displays info about entered movie)
 
 ### `do-what-it-says` (does whatever command is in random.txt file)
+> the `random.txt` file contains a single line with one of the above commands and an argument. Edit `random.txt` and run `do-what-it-says` to run whatever command you typed in.
 
 ---
 ## How to use
