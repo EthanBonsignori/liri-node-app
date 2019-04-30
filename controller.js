@@ -1,11 +1,14 @@
 const fs = require('fs')
 
+// Import each class from the models folder
 const { Band, SpotifyThis, Movie } = require('./models')
 
+// Create new instances of each class
 const band = new Band()
 const spotifyThis = new SpotifyThis()
 const movie = new Movie()
 
+// Run if user enters 'help'
 const helpCommand = () => {
   console.log(`
   \n\nType one of the following commands:\n
@@ -16,6 +19,7 @@ const helpCommand = () => {
   `)
 }
 
+// Reads the random.txt and runs the command that corresponds to the text
 const readRandom = () => {
   fs.readFile('random.txt', 'utf8', (error, data) => {
     if (error) throw error
@@ -24,6 +28,7 @@ const readRandom = () => {
   })
 }
 
+// Check user input and run a function based on user's command
 const checkCommand = (command) => {
   const commandArray = command.split(' ')
   let action = commandArray[0]

@@ -9,9 +9,12 @@ class Movie {
     const url = `https://www.omdbapi.com/?t=${movie}&apikey=${keys.omdb.id}`
     axios.get(url)
       .then(response => {
+        // Add title to console and log.txt later
         const title = `\n\nSearch for "${movie}" Using the <movie-this> command\n\n`
         console.log(title)
+        // Store path for data
         const data = response.data
+        // Create an array of data from the response and join with a new line for each index
         const movieData = [
           `Title: ${data.Title}`,
           `Released: ${data.Year}`,

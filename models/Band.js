@@ -12,14 +12,14 @@ class Band {
     const url = `https://rest.bandsintown.com/artists/${band}/events?app_id=${keys.bandsInTown}`
     axios.get(url)
       .then(response => {
-        // Add title to log.txt and console
+        // Add title to console and log.txt (before the other info is appended)
         const title = `\n\nSearch for "${band}" using the command <concert-this> found ${response.data.length} results\n\n`
         console.log(title)
         fs.appendFile('log.txt', title, (err) => {
           if (err) throw err
         })
         const data = response.data
-        // Create an array and join with a new line for each venue in the response
+        // Create an array of data and join with a new line for each venue in the response
         for (let i = 0; i < data.length; i++) {
           // Update the path for venue on each loop
           const venue = data[i].venue
@@ -38,7 +38,6 @@ class Band {
           })
         }
       })
-      .catch(err => { console.log(err.response.data) })
   }
 }
 
