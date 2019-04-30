@@ -33,10 +33,11 @@ Once you have the repository cloned or downloaded and added your own API keys in
         OMDB_KEY=your_key_here
 6. Save `.env.example` as `.env` (remove the `.example`).
 7. Using a terminal, such as [bash](https://git-scm.com/downloads), navigate to the folder that contains `liri.js`.
-8. Enter a command using the following syntax:
+8. Run `npm i` to install necessary packages.
+9. Enter a command using the following syntax:
 
         node liri <your-command> <argument>
-9. You can view a log of all commands and responses in the `log.txt` file.
+10. You can view a log of all commands and responses in the `log.txt` file.
 
 ---
 ## Example
