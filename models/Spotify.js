@@ -1,5 +1,4 @@
 const keys = require('../services/keys')
-const axios = require('axios')
 const Spotify = require('node-spotify-api')
 
 const fs = require('fs')
